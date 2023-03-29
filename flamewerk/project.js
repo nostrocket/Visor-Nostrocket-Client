@@ -1,10 +1,10 @@
 export const useSettings = defineStore("project", {
   state: () => ({
-    name: "Flamewerk",
-    tagline: "Nuxt3 Startup Template",
+    name: "Nostrocket",
+    tagline: "A hyper-efficient rocket booster for your project",
 
-    textlogo: "Flamewerk",
-    logo: true,
+    textlogo: "🚀 Nostrocket",
+    logo: false,
     logoimage: "light.webp",
     logodark: false,    
     logodarkimage: "dark.webp",
@@ -12,11 +12,11 @@ export const useSettings = defineStore("project", {
     language: "en",
     dafaultroute: "/error",   // Default error route (can be set to / to just push dead links to the homepage)
 
-    layout: 'default',            // (default, web, app )
+    layout: 'app',            // (default, web, app )
     layoutnews: 'docs',       // (default, web, app ) 
     layoutdocs: 'docs',       // (default, web, app )      
 
-    shop: true,              // still need to hook up
+    shop: false,              // still need to hook up
     shopcurrency: 'eur',      // Default Currenty ( Should be an object)
     snipcartid: 'YjIxYzVkZTMtZTAwYi00ODAxLWFiZTgtN2RmNGM4Y2NkZDJlNjM3MjQ4MDgxODk2ODI3ODcy', // Snipcart API
 
@@ -50,10 +50,10 @@ export const useSettings = defineStore("project", {
 
       basicmenu : [
         {
-          name: '🖥️ Website',
+          name: '🏛️ State',
           description: 'Design and create Blogs, landingpages and traditional websites.',
-          href: '/site',
-          icon: '🖥️',
+          href: '/state',
+          icon: '🏛️',
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,
@@ -61,10 +61,10 @@ export const useSettings = defineStore("project", {
         },
 
         {
-          name: '📱 Application',
+          name: '🪪 Identity',
           description: 'Start building the core app design with ready made auth designs.',
-          href: '/login',
-          icon: '📱',
+          href: '/identity',
+          icon: '🪪',
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,
@@ -72,26 +72,16 @@ export const useSettings = defineStore("project", {
         },
 
         {
-          name: '🛍️ Ecommerce',
+          name: '🤖 Add user',
           description: 'Create a product list and start selling products and digital goods today.',
-          href: '/shop',
-          icon: '🛍️',
+          href: '/user',
+          icon: '🤖',
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,
           mobileposition: 1,
         },
 
-        {
-          name: '📚 Library',
-          description: 'Provide documentation or just share notes to improve user guidance.',
-          href: '/library',
-          icon: '📚',
-          bgcolor:'bg-blue-500',
-          position: 1,
-          mobile: true,
-          mobileposition: 1,
-        },
 
       ],
 

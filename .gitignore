@@ -102,3 +102,14 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Gitignore merge
+.DS_Store
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist

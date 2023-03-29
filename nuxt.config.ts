@@ -27,20 +27,18 @@ export default defineNuxtConfig({
 
   pwa: {
     meta: {
-      title: "Flamewerk: Nuxt3 Startup Theme ",
-      name: "Flamewerk",
+      title: "Nostrocket",
+      name: "Nostrocket",
       description:
-        "🔥  Build Modern Webapps for Free Forever with one easy config, Deploy in less then 5min on any cloudprovider. Create a website, application, shop or community with super documentation and our community.",
+        "A hyper-efficient rocket booster for your project",
       ogImage: {
-        path: "https://flamewerk.com/Thumbnail.png",
+        path: "https://nostrocket.pages.dev/Thumbnail.png",
         width: 1200,
         height: 627,
         type: "image/png",
       },
-      twitterSite: "https://twitter.com/flamewerk",
       twitterCard: "summary_large_image",
-      twitterCreator: "@flamewerk",
-      ogUrl: "https://flamewerk.com/",
+      ogUrl: "https://nostrocket.org/",
     },
   },
 

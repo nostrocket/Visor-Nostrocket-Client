@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex min-h-full flex-col bg-colorBgLight dark:bg-colorBgDark pt-16 pb-12"
+    class="flex min-h-full flex-col  pt-16 pb-12"
   >
     <main
       class="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-6 lg:px-8"

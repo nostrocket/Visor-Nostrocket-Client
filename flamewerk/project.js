@@ -12,7 +12,7 @@ export const useSettings = defineStore("project", {
     language: "en",
     dafaultroute: "/error",   // Default error route (can be set to / to just push dead links to the homepage)
 
-    layout: 'app',            // (default, web, app )
+    layout: 'landing',            // (default, web, app )
     layoutnews: 'docs',       // (default, web, app ) 
     layoutdocs: 'docs',       // (default, web, app )      
 
@@ -27,7 +27,7 @@ export const useSettings = defineStore("project", {
     headersocials: true,
     headerlogintext: 'Sign up!',
 
-    footertype: 'Ecommerce',       // Options: Tiny, Minimal, Maximum, Ecommerce
+    footertype: 'Tiny',       // Options: Tiny, Minimal, Maximum, Ecommerce
     footerlanguage: true,
     footernewsletter: false,
     footersocials: true,

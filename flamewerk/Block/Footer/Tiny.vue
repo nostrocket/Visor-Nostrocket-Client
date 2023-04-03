@@ -1,8 +1,8 @@
 <template>
   <div
-    class="bg-colorFooterBgLight dark:bg-colorFooterBgDark h-16 w-full mx-auto mb-12"
+    class=" w-full mx-auto mb-12"
   >
-    <div class="flex items-center justify-around mx-auto max-w-sm mt-6 mb-6">
+    <div class="flex items-center justify-around mx-auto max-w-sm mt-6 mb-6 text-white">
       <BlockSwitchLanguage v-if="project.$state.footerlanguage" />
 
       <BlockSwitchTheme v-if="project.$state.footertheme" />
@@ -10,7 +10,7 @@
 
     <BlockSocialsBasic v-if="project.$state.footersocials"/>
 
-    <BlockFooterCopyright />
+    <BlockFooterCopyright class="text-white"/>
   </div>
 </template>
 <script setup>

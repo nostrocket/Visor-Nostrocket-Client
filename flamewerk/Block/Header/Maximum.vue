@@ -1,5 +1,5 @@
 <template>
-  <Popover class="fixed bg-colorHeaderBgLight dark:bg-colorHeaderBgDark w-full z-50">
+  <Popover class="fixed backdrop-blur-sm bg-opacity-[50%] w-full z-50">
     <div
       class="pointer-events-none absolute inset-0 z-30 shadow"
       aria-hidden="true"
@@ -40,7 +40,7 @@
 
             <span
               v-if="project.$state.textlogo"
-              class="mt-1.5 ml-4 text-xl font-bold dark:text-white"
+              class="mt-1.5 ml-4 text-xl font-bold text-white"
               >{{ project.$state.textlogo }}</span
             >
           </NuxtLink>
@@ -106,9 +106,9 @@
               <PopoverButton
                 :class="[
                   open
-                    ? 'text-colorTxtLight dark:text-colorTxtDark'
-                    : 'text-gray-500',
-                  'px-1 group inline-flex items-center rounded-md bg-colorSwitchBgLight dark:bg-colorSwitchBgDark text-base font-medium hover:text-colorTxtLight dark:text-colorTxtDark focus:outline-none focus:ring-2 focus:ring-colorHighLight dark:focus:ring-colorHighDark focus:ring-offset-2 dark:focus:ring-offset-colorBgDark',
+                    ? 'text-colorTxtDark'
+                    : 'text-white',
+                  'px-1 group inline-flex items-center rounded-md text-base font-medium hover:text-gray-200 dark:text-colorTxtDark focus:outline-none focus:ring-2 focus:ring-colorHighLight dark:focus:ring-colorHighDark focus:ring-offset-2 dark:focus:ring-offset-colorBgDark',
                 ]"
               >
                 <span>{{
@@ -116,8 +116,8 @@
                 }}</span>
                 <ChevronDownIcon
                   :class="[
-                    open ? 'text-gray-600' : 'text-gray-400',
-                    'ml-2 h-5 w-5 group-hover:text-gray-500',
+                    open ? 'text-white' : 'text-white',
+                    'ml-2 h-5 w-5 group-hover:text-white',
                   ]"
                   aria-hidden="true"
                 />
@@ -140,8 +140,9 @@
                     z-10
                     hidden
                     transform
-                    bg-colorHeaderBgMenuPopupLight
-                    dark:bg-colorHeaderBgMenuPopupDark
+                    backdrop-blur-sm
+                    bg-colorHeaderBgMenuPopupLight/10
+                    dark:bg-colorHeaderBgMenuPopupDark/10
                     shadow-xl
                     dark:shadow-colorBgLight/10
                     md:block

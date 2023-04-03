@@ -50,10 +50,10 @@ export const useSettings = defineStore("project", {
 
       basicmenu : [
         {
-          name: '🏛️ State',
+          name: 'Identity Tree',
           description: 'Design and create Blogs, landingpages and traditional websites.',
-          href: '/state',
-          icon: '🏛️',
+          href: '/',
+          icon: '🌳',
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,
@@ -61,9 +61,9 @@ export const useSettings = defineStore("project", {
         },
 
         {
-          name: '🪪 Identity',
+          name: 'Account',
           description: 'Start building the core app design with ready made auth designs.',
-          href: '/identity',
+          href: '/account',
           icon: '🪪',
           bgcolor:'bg-blue-500',
           position: 1,
@@ -72,10 +72,10 @@ export const useSettings = defineStore("project", {
         },
 
         {
-          name: '🤖 Add user',
+          name: 'Protocol',
           description: 'Create a product list and start selling products and digital goods today.',
-          href: '/user',
-          icon: '🤖',
+          href: '/protocol',
+          icon: '⚡️',
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,
@@ -86,7 +86,7 @@ export const useSettings = defineStore("project", {
       ],
 
       MenuPopupBig: true,
-      MenuPopupBigName: 'Examples',
+      MenuPopupBigName: 'Mission Control',
       MenuPopupSplit: false,
       MenuPopupSplitName: 'Split Menu',
       MenuPopupSplitBlog: true,
@@ -95,10 +95,10 @@ export const useSettings = defineStore("project", {
       // MENU SLIDE OPEN
       MenuPopupBigItems : [
         {
-          name: '🏛️ State',
+          name: 'Identity Tree',
           description: 'Design and create Blogs, landingpages and traditional websites.',
-          href: '/state',
-          icon: '🏛️',
+          href: '/',
+          icon: '🌳',
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,
@@ -106,9 +106,9 @@ export const useSettings = defineStore("project", {
         },
 
         {
-          name: '🪪 Identity',
+          name: 'Account',
           description: 'Start building the core app design with ready made auth designs.',
-          href: '/identity',
+          href: '/account',
           icon: '🪪',
           bgcolor:'bg-blue-500',
           position: 1,
@@ -117,10 +117,10 @@ export const useSettings = defineStore("project", {
         },
 
         {
-          name: '🤖 Add user',
+          name: 'Protocol',
           description: 'Create a product list and start selling products and digital goods today.',
-          href: '/user',
-          icon: '🤖',
+          href: '/protocol',
+          icon: '⚡️',
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,

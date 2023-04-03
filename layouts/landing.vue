@@ -65,13 +65,23 @@ stars.forEach( star => {
 </script>
 <style>
 
-.back{
+.dark .back{
     background: #000;
     overflow: hidden;
     background-image: 
     radial-gradient(circle at 40% 50%, #610b4b 0%, #a30d8a00 40%),
     radial-gradient(circle at 65% 60%, #420a50 0%, #580e7500 45%),
     radial-gradient(circle at 40% 60%, #076066 0%, #17777700 45%);
+    background-blend-mode: screen;
+}
+
+.back{
+    background: #000;
+    overflow: hidden;
+    background-image: 
+    radial-gradient(circle at 40% 50%, #9ef4b4 0%, #f275ff 40%),
+    radial-gradient(circle at 65% 60%, #bdf5af 0%, #f18aff 45%),
+    radial-gradient(circle at 40% 60%, #f89f99 0%, #8888ff 45%);
     background-blend-mode: screen;
 }
 
@@ -95,9 +105,27 @@ stars.forEach( star => {
     top: 0%;
     left: 0%;
     animation:  animate 6.5s infinite ease-in;
+    background: #b30e74;
+    box-shadow: 0 0 20px rgb(255, 10, 177);
+}
+
+.dark .scene div{
+    width: 1.5vmin;
+    height: 1.5vmin;
+    transform: 
+    translateZ(-100vmin)
+    rotateY(90deg)
+    rotateX(var(--rx))
+    translateZ(var(--x))
+    scaleX(1);
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    animation:  animate 6.5s infinite ease-in;
     background: #fff;
     box-shadow: 0 0 20px rgb(10, 239, 255);
 }
+
 
 @keyframes animate {
     0%, 90%{

@@ -38,14 +38,26 @@ stars.forEach( star => {
 </script>
 <style>
 
-.back{
-    background: #000;
+
+.dark .back{
+    background: #FFF;
     overflow: hidden;
     background-image: 
     radial-gradient(circle at 40% 50%, #610b4b 0%, #a30d8a00 40%),
     radial-gradient(circle at 65% 60%, #420a50 0%, #580e7500 45%),
     radial-gradient(circle at 40% 60%, #076066 0%, #17777700 45%);
     background-blend-mode: screen;
+}
+
+.back{
+    background: #000;
+    overflow: hidden;
+    background-image: 
+    radial-gradient(circle at 40% 50%, #9ef4b4 0%, #f275ff 40%),
+    radial-gradient(circle at 65% 60%, #bdf5af 0%, #f18aff 45%),
+    radial-gradient(circle at 40% 60%, #f89f99 0%, #8888ff 45%);
+    background-blend-mode: screen;
+
 }
 
 .scene{

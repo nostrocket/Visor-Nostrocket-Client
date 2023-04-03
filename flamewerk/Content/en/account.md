@@ -5,7 +5,8 @@ description: 'meta description of the page'
 
 ::BlockProseContentCenters
 
-# 🔥 ✨ STATE 🏛️ ✨ 🔥
+# 🪪 Account 
 
 ::
+
 

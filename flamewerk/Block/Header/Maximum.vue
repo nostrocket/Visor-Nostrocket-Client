@@ -374,7 +374,7 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
               v-if="project.$state.headerlanguage"
               :toggledown="true"
             />
-            <BlockNostrLogin/>
+            <BlockNostrIdentity/>
           </div>
         </div>
       </div>

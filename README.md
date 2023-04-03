@@ -4,6 +4,8 @@ Problem: there is no frontend for nostrocket
 # solution
 Build: client components for reusability using the Flamewerk template.
 
+## You can preview the build here: https://nostrocket-app.pages.dev/
+
 # Short introduction
 
 JavaScript frameworks are built in layers, such as Vue and React, which are considered tier 1 layers. On top of these layers, there are more development structures that provide additional common functionality out of the box, such as NextJS, NuxtJS, and MeteorJS.

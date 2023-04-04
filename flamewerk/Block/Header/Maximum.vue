@@ -71,6 +71,20 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
         >
           <PopoverGroup as="nav" class="flex space-x-10">
             <!-- Basic Menu Integration -->
+            <NuxtLink
+              :to="localePath('/missioncontrol')"
+              class="
+                text-base
+                font-medium
+                text-gray-500
+                hover:text-colorTxtLight
+                dark:text-colorTxtDark
+              "
+              >🐇 MISSION CONTROL CLONE</NuxtLink
+            >
+
+
+
           <div class="space-x-10" v-if="project.$state.headermenu">
             <NuxtLink
               :to="localePath(item.href)"

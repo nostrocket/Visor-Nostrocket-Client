@@ -5,9 +5,9 @@ export const useSettings = defineStore("project", {
 
     textlogo: "VISØR",
     logo: true,
-    logoimage: "darkvisor.png",
+    logoimage: "DarkVisor.png",
     logodark: true,    
-    logodarkimage: "lightvisor.png",
+    logodarkimage: "LightVisor.png",
 
     language: "en",
     dafaultroute: "/error",   // Default error route (can be set to / to just push dead links to the homepage)

@@ -1,13 +1,13 @@
 export const useSettings = defineStore("project", {
   state: () => ({
-    name: "Nostrocket",
-    tagline: "A hyper-efficient rocket booster for your project",
+    name: "Visor",
+    tagline: "A Nostrocket Client",
 
-    textlogo: "🚀 Nostrocket",
-    logo: false,
-    logoimage: "light.webp",
-    logodark: false,    
-    logodarkimage: "dark.webp",
+    textlogo: "VISØR",
+    logo: true,
+    logoimage: "darkvisor.png",
+    logodark: true,    
+    logodarkimage: "lightvisor.png",
 
     language: "en",
     dafaultroute: "/error",   // Default error route (can be set to / to just push dead links to the homepage)
@@ -33,6 +33,8 @@ export const useSettings = defineStore("project", {
     footersocials: true,
     footertheme:true,         // Toggle Dark/Light mode switch
     
+    nostr:true,
+
     socialnavigation : {      // Options: facebook, instragram, twitter, github, discord, linkedin, dribble
       facebook: '',
       instagram: '',

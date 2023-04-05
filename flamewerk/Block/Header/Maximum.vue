@@ -40,7 +40,7 @@
 
             <span
               v-if="project.$state.textlogo"
-              class="mt-1.5 ml-4 text-xl font-bold dark:text-white text-black"
+              class="mt-1.5 ml-4 text-xl font-bold dark:text-pink-500 text-visor-500"
               >{{ project.$state.textlogo }}</span
             >
           </NuxtLink>
@@ -55,7 +55,7 @@
             <BlockShopMenu />
 
 
- <BlockNostrLoginbutton/>
+ <BlockNostrLoginbutton v-if="project.$state.nostr"/>
 
           <PopoverButton
             class="
@@ -388,7 +388,7 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
               v-if="project.$state.headerlanguage"
               :toggledown="true"
             />
-            <BlockNostrIdentity/>
+            <BlockNostrIdentity v-if="project.$state.nostr"/>
           </div>
         </div>
       </div>

@@ -27,10 +27,10 @@ export default defineNuxtConfig({
 
   pwa: {
     meta: {
-      title: "Nostrocket",
-      name: "Nostrocket",
+      title: "Visør: a Nostrocket Client",
+      name: "Visør",
       description:
-        "A hyper-efficient rocket booster for your project",
+        "A Nostrocket Client",
       ogImage: {
         path: "https://nostrocket.pages.dev/Thumbnail.png",
         width: 1200,

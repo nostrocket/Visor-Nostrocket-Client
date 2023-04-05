@@ -1,5 +1,5 @@
 ---
-title: 'Nostrocket - A hyper-efficient rocket booster for your project'
+title: 'VISØR: A Nostrocket Client'
 description: 'a hyper-efficient rocket booster for your project'
 ---
 

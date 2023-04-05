@@ -4,7 +4,7 @@ Problem: there is no frontend for nostrocket
 # solution
 Build: client components for reusability using the Flamewerk template.
 
-## You can preview the build here: https://nostrocket-app.pages.dev/
+## You can preview the build here: https://visor.pages.dev
 
 # Short introduction
 

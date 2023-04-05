@@ -32,13 +32,13 @@ export default defineNuxtConfig({
       description:
         "A Nostrocket Client",
       ogImage: {
-        path: "https://nostrocket.pages.dev/Thumbnail.png",
+        path: "https://visor.pages.dev/Thumbnail.png",
         width: 1200,
         height: 627,
         type: "image/png",
       },
       twitterCard: "summary_large_image",
-      ogUrl: "https://nostrocket.org/",
+      ogUrl: "https://visor.pages.dev/",
     },
   },
 

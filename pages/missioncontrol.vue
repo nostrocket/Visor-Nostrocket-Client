@@ -5,15 +5,7 @@
 <h1 class="text-2xl dark:text-white mt-6 block">🤯 List of totally normal things;</h1>
 
 <ul class="dark:text-white mb-6">
-  <li>- During testing things that might help: Hard refresh after the double key request
-  </li>
-    <li>- For now the request for the key readout happens twice ( this is "normal" for now)
-  </li>
-  <li>- Performance duhh 
-  </li>
-  <li>- Events readout is still broken 
-  </li>
-  <li>- Profile Readout does work 🥳
+  <li>- Performance is still a bit derpy  
   </li>
 
 </ul>
@@ -30,22 +22,22 @@
 
 // import {nostrTools, getPublicKey} from 'nostr-tools'
 
-setPageLayout('landing');
+setPageLayout('landingclone');
 
 
 useHead({
   meta: [
-    { property: "twitter:title", content: "Flamewerk: Nuxt3 Startup Theme" },
+    { property: "twitter:title", content: "VISØR: Nostrocket Client" },
     { property: "twitter:image", content: "/Thumbnail.png" },
     {
       property: "twitter:description",
       content:
-        "Build Modern Webapps for Free Forever with one easy config, Deploy in less then 5min on any cloudprovider. Create a website, application, shop or community with super documentation and our community.",
+        "VISØR: Nostrocket Client",
     },
   ],
   script: [
 
-        { src: "https://unpkg.com/nostr-tools/lib/nostr.bundle.js" },
+        { src: "/libs/nostr.bundle.js" },
 
     { src: "/libs/updateProfile.js"},
    { src: "/libs/kind0.js" },
@@ -54,7 +46,7 @@ useHead({
    { src: "/libs/state.js" },
    { src: "/libs/utils.js"},
 
-    // { src: "/libs/events.js", body:false},
+    { src: "/libs/events.js", body:false},
 
 
   ],

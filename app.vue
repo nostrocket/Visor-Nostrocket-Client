@@ -14,7 +14,7 @@ const project = useSettings();
 useHead({
   meta: [
     { property: "twitter:title", content: "VISØR: Nostrocket Client" },
-    { property: "twitter:image", content: "/Thumbnail.png" },
+    { property: "twitter:image", content: "/Thumbnailed.png" },
     {
       property: "twitter:description",
       content:

@@ -36,7 +36,7 @@ export default defineNuxtConfig({
       description:
         "A Nostrocket Client",
       ogImage: {
-        path: "https://visor.pages.dev/Thumbnail.png",
+        path: "https://visor.pages.dev/Thumbnailed.png",
         width: 1200,
         height: 627,
         type: "image/png",

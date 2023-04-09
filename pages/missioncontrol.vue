@@ -23,7 +23,7 @@
 <script setup>
 
 import { onMounted } from "vue";
-import { NostrTools } from "nostr-tools";
+// import { nostrtools as NostrTools } from "nostr-tools";
 
 setPageLayout('landingclone');
 

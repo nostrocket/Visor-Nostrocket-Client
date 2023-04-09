@@ -17,7 +17,6 @@ function enMapKind0Object(e) {
     if (c.kind === 0) {
         d = JSON.parse(c.content)
         kind0Objects.set(c.pubkey, d)
-        console.log(d)
     }
 }
 function getKind0Object(pubkey,relays = []) {

@@ -19,30 +19,36 @@ let sub = pool.sub(
     ]
 )
 
-
-
 sub.on('event', event => {
     let j = JSON.parse(event.content)
     enMapState(event)
+    document.getElementById("content").replaceChildren()
+    document.getElementById("content").appendChild(renderIdentityLayout())
+})
+
+function renderIdentityLayout() {
     waitForStateReady(()=>{
         // if (storedPubkey === "" || !storedPubkey) {
         //     window.nostr.getPublicKey().then(x=>{
         //         storedPubkey = x
         //     })
         // }
-        document.getElementById("content").replaceChildren()
-        document.getElementById("content").appendChild(makeIdentityLayout())
+        
+        const rootNode = identities().find(node => node.UniqueSovereignBy === '1Humanityrvhus5mFWRRzuJjtAbjk2qwww');
+        const USHIdentities = identities().filter(x => x.UniqueSovereignBy !== null && x.UniqueSovereignBy !== '')
+        document.getElementById("left-column").innerHTML = renderTree(USHIdentities, rootNode)
+       
         identities().forEach(i => {
-          
-        const sovereignBy = i.UniqueSovereignBy;
-        if (sovereignBy === null || sovereignBy === '') {
-          document.getElementById("right-column").appendChild(makePerson(i));
-        }else {
-            document.getElementById("left-column").appendChild(makePerson(i));
-        }
+
+            const sovereignBy = i.UniqueSovereignBy;
+            if (sovereignBy === null || sovereignBy === '') {
+                document.getElementById("right-column").appendChild(makePerson(i));
+            }
         })
     })
-})
+    return makeIdentityLayout()
+}
+
 function makeIdentityLayout(){
     let d = document.createElement("div")
     d.className = "columns-wrapper"
@@ -64,41 +70,37 @@ function createAddButton(identity,onclick) {
     const button = document.createElement("button");
     button.id = identity.Account+'_button'
     // Set some properties for the button
-    button.textContent = "Add";
-    button.style.backgroundColor = "blue";
-    button.style.color = "white";
-    
-    // Add an event listener to the button
-    button.onclick = function() { 
-    if (pubkeyInIdentity(pubkey)) {
-        const USH = identities().find(x => x.Account === pubkey).UniqueSovereignBy
-        if (USH != null && USH !== '') {
-            const Account = this.id.substring(0, this.id.indexOf("_"));
-            const target = identities().find(x => x.Account === Account)
-            
-            content = JSON.stringify({target: target.Account, maintainer: false,ush:true,character:false})
-            tags = makeTags(pubkey)
-            sendEventToRocket(content, tags, 640402, pubkey).then(x =>{
-                // location.reload()
-                console.log(x,'undefined?')
-            if (reload) {location.reload()}
+    button.textContent = "Add to Identity Tree";
 
-            });
-        }else{
+    // Add an event listener to the button
+    button.onclick = function () {
+        if (pubkeyInIdentity(pubkey)) {
+            const USH = identities().find(x => x.Account === pubkey).UniqueSovereignBy
+            if (USH != null && USH !== '') {
+                addToIdentityTree(identity.Account)
+            } else {
+                alert("You need to be at Identity Tree first to add others identity.")
+            }
+        } else {
             alert("You need to be at Identity Tree first to add others identity.")
-            return
         }
-    } else{
-        alert("You need to be at Identity Tree first to add others identity.")
-        return 
-    }  
-    
-}
+
+    }
     
     // Return the button object
     return button;
   }
 
+async function addToIdentityTree(account) {
+    console.log(account)
+    content = JSON.stringify({target: account, maintainer: false, ush: true, character: false})
+    tags = makeTags(pubkey, "identity")
+    let unsigned = makeUnsignedEvent(content, tags, 640402, pubkey)
+    signAsynchronously(unsigned).then(signed => {
+        console.log(signed)
+        publish(signed)
+    })
+}
 
 function makePerson(identity) {
     let p = document.createElement("div")
@@ -107,6 +109,7 @@ function makePerson(identity) {
     p.appendChild(makeItem("About", identity.About))
     p.appendChild(makeItem("Account", identity.Account))
     p.appendChild(makeItem("Added By", identity.UniqueSovereignBy))
+    p.appendChild(makeItem("Order", identity.Order))
     if (identity.UniqueSovereignBy === null || identity.UniqueSovereignBy === ''){
         p.appendChild(createAddButton(identity))
     }
@@ -132,3 +135,20 @@ function makeH3(title) {
     h3.innerText = title
     return h3
 }
+
+function renderTree(data, root) {
+    let result = '';
+    if (root) {
+      result += `<ul><li>${makePerson(root).innerHTML}`;
+      const children = data.filter(child => child.UniqueSovereignBy === root.Account);
+      if (children.length > 0) {
+        result += '<ul>';
+        children.forEach(child => {
+          result += renderTree(data, child);
+        });
+        result += '</ul>';
+      }
+      result += '</li></ul>';
+    }
+    return result;
+  }

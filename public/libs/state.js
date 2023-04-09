@@ -14,6 +14,7 @@ function waitForStateReady(callback) {
 function enMapState(e) {
     state = JSON.parse(e.content)
     currentState = state
+
     stateReady = true
 }
 
@@ -22,12 +23,23 @@ function identities() {
     if (stateReady) {
         let idents = Object.keys(currentState.identity);
         idents.forEach(account => {
-            console.log(currentState.identity[account])
             i.push(currentState.identity[account])
         })
     }
     return i
 }
+function shares() {
+    let s = []
+    if (stateReady) {
+        let  shares = Object.keys(currentState.shares);
+        shares.forEach(subrocket => {
+            // console.log(currentState.identity[account])
+            i.push(currentState.identity[account])
+        })
+    }
+    return i
+}
+
 function pubkeyInIdentity(pubkey) {
     if (currentState.identity.hasOwnProperty(pubkey)) {
         return true
@@ -38,6 +50,10 @@ function pubkeyInIdentity(pubkey) {
 }
 function getReplyByAccount(account) {
     return currentState.replay[account]
+}
+
+function getIdentityByAccount(account) {
+    return currentState.identity[account]
 }
 
 

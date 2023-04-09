@@ -24,7 +24,11 @@ export default defineNuxtConfig({
       },
     ],
   ],
-
+  vite: {
+    optimizeDeps: {
+      esbuildOptions: {target: "es2020"}
+  },
+  },
   pwa: {
     meta: {
       title: "Visør: a Nostrocket Client",

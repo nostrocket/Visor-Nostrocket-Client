@@ -1,7 +1,9 @@
 let reload = false
 let IdentityRoot = "0a73208becd0b1a9d294e6caef14352047ab44b848930e6979937fe09effaf71"
+let SharesRoot = "7fd9810bdb8bc635633cc4e3d0888e395420aedc7d28778c100793d1d3bc09a6"
+let SubrocketsRoot = "c7f87218e62f6d41fa2f5b2480210ed1d48b2609e03e9b4b500a3b64e3c08554"
 let IgnitionEvent = "fd459ea06157e30cfb87f7062ee3014bc143ecda072dd92ee6ea4315a6d2df1c"
-let ReplyRoot = "24c30ad7f036ed49379b5d1209836d1ff6795adb34da2d3e4cabc47dc9dfef21"
+let ReplayRoot = "24c30ad7f036ed49379b5d1209836d1ff6795adb34da2d3e4cabc47dc9dfef21"
 
 function updateAccountDetails() {
     form = document.createElement("div")
@@ -16,7 +18,6 @@ function updateAccountDetails() {
                     setBio( document.getElementById( 'name input' ).value, document.getElementById( 'about input' ).value, pubkey )
                     //location.reload()
                 } else {
-                    console.log()
                     alert(document.getElementById( 'name input' ).value + " has been taken, please try another username")
                 }
             })
@@ -41,13 +42,13 @@ async function validateUnique(name) {
 function bioButtons(onclick) {
     submit = document.createElement("button")
     submit.onclick = onclick
-    submit.className = "inline-flex justify-center rounded-md border border-transparent bg-pink-600 px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 mr-2"
+    submit.className = "button is-link"
     submit.innerText = "Submit"
     cancel = document.createElement("button")
     cancel.onclick = function () {
         document.getElementById('name input').value = '';document.getElementById('about input').value = '';
     }
-    cancel.className = "inline-flex justify-center rounded-md border border-transparent bg-pink-600 px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 mx-2"
+    cancel.className = "button is-link is-light"
     cancel.innerText = "Clear"
 
     buttons = document.createElement("div")
@@ -67,7 +68,6 @@ function createUsernameAndBioForm(div,haveExistingKind0,username,about){
     
     div.appendChild(makeH3("Create or modify your Nostrocket profile"))
     div.appendChild(makeParagraph("* Nostrocket usernames **cannot** be changed once set for your Pubkey   \n* Nostrocket usernames **must** be unique   \n* Protocol: [Non-fungible Identity](superprotocolo://b66541b20c8a05260966393938e2af296c1a39ca5aba8e21bd86fcce2db72715)"))
-    console.log(haveExistingKind0,"This is important")
     if (haveExistingKind0) {
         div.appendChild(makeParagraph("Submit this form to claim _**" + kind0Objects.get(pubkey).name + "**_ now."))
     }
@@ -164,14 +164,14 @@ function makeLink(url, text) {
 
 function makeH3(title) {
     h3 = document.createElement("h3")
-    h3.className = "text-2xl"
+    h3.className = "is-3"
     h3.innerText = title
     return h3
 }
 
 function makeTextField(label, placeholder, id, maxlength, existing) {
     input = document.createElement("textarea")
-    input.className = "block w-full resize-none border-0 bg-transparent text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:py-1.5 sm:text-sm sm:leading-6 my-4 max-w-sm rounded-lg	p-3"
+    input.className = "textarea"
     if (existing.length > 0) {
         input.value = existing
     }
@@ -185,7 +185,7 @@ function makeTextInput(label, placeholder, id, maxlength, existing) {
     d = document.createElement("div")
     textInput = document.createElement("input")
     d.appendChild(textInput)
-    textInput.className = "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 my-4 max-w-sm rounded-lg	p-3"
+    textInput.className = "input"
     textInput.type = "text"
     if (existing.length > 0) {
         textInput.value = existing
@@ -279,7 +279,7 @@ function makeFormField(label, input) {
 
 function makeLabel(name) {
     label = document.createElement("label")
-    label.className = "block text-sm font-medium leading-6 text-gray-900 dark:text-white"
+    label.className = "label"
     label.innerText = name
     return label
 }
@@ -288,33 +288,31 @@ function makeLabel(name) {
 async function setBio(name, about, pubkey) {
     if ((name.length > 0) || (about.length > 0)) {
         content = JSON.stringify({name: name, about: about})
-        tags = makeTags(pubkey)
-        await sendEventToRocket(content, tags, 640400, pubkey).then(x =>{
-            // location.reload()
-            console.log(x,'undefined?')
-            if (reload) {location.reload()}
-
+        tags = makeTags(pubkey, "identity")
+        signAsynchronously(makeUnsignedEvent(content, tags, 640400, pubkey)).then(signed => {
+            publish(signed)
         })
     } else {
         console.log("username and bio can't both be empty")
     }
 }
-function makeTags(pubkey){
+function makeTags(pubkey, type, r){
     tags = [["e", IgnitionEvent, "", "root"]]
-    tags.push(["e", IdentityRoot, "", "reply"])
-    if (pubkeyInIdentity(pubkey)){
-        tags.push(["r", getReplyByAccount(pubkey), "", "reply"])
-    } else {
-        tags.push(["r", ReplyRoot, "", "reply"])
+    if (type === "identity") {tags.push(["e", IdentityRoot, "", "reply"])}
+    if (type === "shares") {tags.push(["e", SharesRoot, "", "reply"])}
+    if (type === "subrockets") {tags.push(["e", SubrocketsRoot, "", "reply"])}
+    if (!r) {
+        if (pubkeyInIdentity(pubkey)){
+            tags.push(["r", getReplyByAccount(pubkey), "", "reply"])
+        } else {
+            tags.push(["r", ReplayRoot, "", "reply"])
+        }
+    }
+    if (r) {
+        tags.push(["r", r, "", "reply"])
     }
     return tags
 }
-// nostr.Tag{"r",
-// "24c30ad7f036ed49379b5d1209836d1ff6795adb34da2d3e4cabc47dc9dfef21",
-// "",
-// "reply"},
-// nostr.Tag{"e", "fd459ea06157e30cfb87f7062ee3014bc143ecda072dd92ee6ea4315a6d2df1c", "", "root"},
-// nostr.Tag{"e", "0a73208becd0b1a9d294e6caef14352047ab44b848930e6979937fe09effaf71", "", "reply"},
 
 function spacer() {
     s = document.createElement("span")

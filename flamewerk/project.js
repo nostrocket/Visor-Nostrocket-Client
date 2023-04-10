@@ -63,6 +63,17 @@ export const useSettings = defineStore("project", {
         },
 
         {
+          name: 'New SubRocket',
+          description: 'Create a product list and start selling products and digital goods today.',
+          href: '/subrocket',
+          icon: '🚀',
+          bgcolor:'bg-blue-500',
+          position: 1,
+          mobile: true,
+          mobileposition: 1,
+        },
+
+        {
           name: 'Account',
           description: 'Start building the core app design with ready made auth designs.',
           href: '/account',
@@ -73,16 +84,6 @@ export const useSettings = defineStore("project", {
           mobileposition: 1,
         },
 
-        {
-          name: 'Protocol',
-          description: 'Create a product list and start selling products and digital goods today.',
-          href: '/protocol',
-          icon: '⚡️',
-          bgcolor:'bg-blue-500',
-          position: 1,
-          mobile: true,
-          mobileposition: 1,
-        },
 
 
       ],
@@ -107,6 +108,18 @@ export const useSettings = defineStore("project", {
           mobileposition: 1,
         },
 
+
+        {
+          name: 'New SubRocket',
+          description: 'Create a product list and start selling products and digital goods today.',
+          href: '/subrocket',
+          icon: '🚀',
+          bgcolor:'bg-blue-500',
+          position: 1,
+          mobile: true,
+          mobileposition: 1,
+        },
+
         {
           name: 'Account',
           description: 'Start building the core app design with ready made auth designs.',
@@ -118,16 +131,6 @@ export const useSettings = defineStore("project", {
           mobileposition: 1,
         },
 
-        {
-          name: 'Protocol',
-          description: 'Create a product list and start selling products and digital goods today.',
-          href: '/protocol',
-          icon: '⚡️',
-          bgcolor:'bg-blue-500',
-          position: 1,
-          mobile: true,
-          mobileposition: 1,
-        },
       ],
       MenuPopupSplitColums: {
         company : [

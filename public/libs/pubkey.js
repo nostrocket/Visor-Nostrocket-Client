@@ -7,6 +7,6 @@ setTimeout(function(){
             pubkey = x
         })
     } else {
-        alert("You can look but you can't touch. Please install a NIP-07 nostr signing browser extension (such as GetAlby or Nos2x) if you want to interact with Nostrocket!")
+        console.log("Sorry Seems like we can't read out your pubkey, you can try contacting if this keeps happening")
     }
 },100)

@@ -70,7 +70,7 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
         >
           <PopoverGroup as="nav" class="flex space-x-10">
             <!-- Basic Menu Integration -->
-            <NuxtLink
+            <!-- <NuxtLink
               :to="localePath('/missioncontrol')"
               class="
                 text-base
@@ -80,7 +80,7 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                 dark:text-colorTxtDark
               "
               >🐇 MISSION CONTROL CLONE</NuxtLink
-            >
+            > -->
 
 
 

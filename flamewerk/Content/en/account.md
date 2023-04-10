@@ -7,6 +7,8 @@ description: 'meta description of the page'
 
 # 🪪 Account 
 
+:ComponentAccount
+
 ::
 
 

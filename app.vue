@@ -21,6 +21,14 @@ useHead({
         "VISØR: Nostrocket Client",
     },
   ],
+  script: [
+    { src: "/libs/nostr.bundle.js" },
+    { src: "/libs/kind0.js" },
+    { src: "/libs/showdown.min.js" },
+     { src: "/libs/pubkey.js" },
+    { src: "/libs/state.js" },
+    { src: "/libs/utils.js" },
+  ],
 
   htmlAttrs: { lang: currentlang },
   bodyAttrs: {

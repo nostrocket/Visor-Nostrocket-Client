@@ -1,3 +1,22 @@
+<template>
+    <main class="max-w-4xl mx-auto">
+
+
+
+<div id = "content">
+    WAITING FOR EVENTS
+
+</div>
+</main>
+</template>
+<script setup>
+
+import { onMounted } from "vue";
+// import { nostrtools as NostrTools } from "nostr-tools";
+
+onMounted(() => {
+
+
 
 
 const pool = new NostrTools.SimplePool()
@@ -132,8 +151,8 @@ function makeText(text) {
 }
 
 function makeH3(title) {
-  let h3 = document.createElement("h3")
-  h3.className = "is-3"
+    let h3 = document.createElement("h3")
+    h3.className = "is-3"
     h3.innerText = title
     return h3
 }
@@ -154,3 +173,35 @@ function renderTree(data, root) {
     }
     return result;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+;
+</script>
+<style>
+.dark input[type=text]
+ {
+    color: black;
+ }
+
+.dark textarea {
+ 
+    color: black;
+ }
+
+    </style>

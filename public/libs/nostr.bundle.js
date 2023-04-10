@@ -8887,3 +8887,5 @@ zoo`.split("\n");
   utils.sha256Sync = (...msgs) => sha256(utils.concatBytes(...msgs));
   return __toCommonJS(nostr_tools_exports);
 })();
+
+

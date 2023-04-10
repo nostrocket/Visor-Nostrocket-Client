@@ -28,36 +28,36 @@ import { onMounted } from "vue";
 setPageLayout('landingclone');
 
 
-useHead({
-  meta: [
-    { property: "twitter:title", content: "VISØR: Nostrocket Client" },
-    { property: "twitter:image", content: "/Thumbnailed.png" },
-    {
-      property: "twitter:description",
-      content:
-        "VISØR: Nostrocket Client",
-    },
-  ],
-  script: [
+// useHead({
+//   meta: [
+//     { property: "twitter:title", content: "VISØR: Nostrocket Client" },
+//     { property: "twitter:image", content: "/Thumbnailed.png" },
+//     {
+//       property: "twitter:description",
+//       content:
+//         "VISØR: Nostrocket Client",
+//     },
+//   ],
+//   script: [
 
-    { src: "/libs/events.js"  },
-    { src: "/libs/dom.js" },
-    { src: "/libs/updateProfile.js"},
-    { src: "/libs/kind0.js" },
-    { src: "/libs/pubkey.js" },
-    { src: "/libs/showdown.min.js" },
-    { src: "/libs/state.js" },
-    { src: "/libs/utils.js" },
-    { src: "/libs/newsubrocket.js" },
-  ],
-
-
+//     { src: "/libs/events.js"  },
+//     { src: "/libs/dom.js" },
+//     { src: "/libs/updateProfile.js"},
+//     { src: "/libs/kind0.js" },
+//     { src: "/libs/pubkey.js" },
+//     { src: "/libs/showdown.min.js" },
+//     { src: "/libs/state.js" },
+//     { src: "/libs/utils.js" },
+//     { src: "/libs/newsubrocket.js" },
+//   ],
 
 
 
 
 
-})
+
+
+// })
 
 // onMounted(() => {
 

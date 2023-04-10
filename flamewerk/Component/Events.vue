@@ -1,5 +1,5 @@
 <template>
-    <main class="max-w-4xl mx-auto">
+    <main class="w-full text-left">
 
 
 
@@ -72,13 +72,15 @@ function renderIdentityLayout() {
 
 function makeIdentityLayout(){
     let d = document.createElement("div")
-    d.className = "columns-wrapper"
+    d.className = "columns-wrapper flex"
     let left = document.createElement("div")
+    left.className = "flex-1" 
     left.id = "left-column"
     left.innerHTML = '<h2>Identity Tree</h2>\
     <ul id="provedIdentities"></ul>'
     let right = document.createElement("div")
     right.id = "right-column"
+    right.className = "flex-1" 
     right.innerHTML = '<h2>Accounts waiting to be added</h2>\
     <ul id="unprovedIdentities"></ul>'
     d.appendChild(left)
@@ -90,6 +92,8 @@ function createAddButton(identity,onclick) {
     // Create a button element
     const button = document.createElement("button");
     button.id = identity.Account+'_button'
+    button.className = "inline-flex justify-center rounded-md border border-transparent bg-pink-600 px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 mx-2"
+
     // Set some properties for the button
     button.textContent = "Add to Identity Tree";
 

@@ -1,5 +1,5 @@
 <template>
-    <main class="max-w-4xl mx-auto">
+    <main class="text-left">
 
 
 
@@ -26,7 +26,7 @@ function makeTextInput(label, placeholder, id, maxlength, existing) {
     let d = document.createElement("div")
     let textInput = document.createElement("input")
     d.appendChild(textInput)
-    textInput.className = "input"
+    textInput.className = "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 my-4 max-w-sm rounded-lg	p-3"
     textInput.type = "text"
     if (existing.length > 0) {
         textInput.value = existing
@@ -122,7 +122,7 @@ function makeFormField(label, input) {
 
 function makeLabel(name) {
     let label = document.createElement("label")
-    label.className = "label"
+    label.className = "block text-sm font-medium leading-6 text-gray-900 dark:text-white text-left"
     label.innerText = name
     return label
 }
@@ -133,6 +133,8 @@ function newsubrocket() {
     div.appendChild(makeTextInput("Name", "Subrocket Name", "name input", 20, ""))
     div.appendChild(makeTextInput("Problem ID", "ID of Problem", "problem input", 64, "e624297b5a66775ee21a2565c023764bf6dc73cbbb0a1579fa5ff40ff50d59cd"))
     let b = document.createElement("button")
+    b.className = "inline-flex justify-center rounded-md border border-transparent bg-pink-600 px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 mx-2"
+
     b.innerText = "Do it!"
     b.onclick = function () {
         newSubrocketName(document.getElementById( 'name input' ).value, document.getElementById( 'problem input' ).value).then(x => {

@@ -72,15 +72,15 @@ function renderIdentityLayout() {
 
 function makeIdentityLayout(){
     let d = document.createElement("div")
-    d.className = "columns-wrapper flex"
+    d.className = "columns-wrapper flex flex-col lg:flex-row max-w-full"
     let left = document.createElement("div")
-    left.className = "flex-1" 
+    left.className = "flex-1 max-w-full" 
     left.id = "left-column"
     left.innerHTML = '<h2>Identity Tree</h2>\
     <ul id="provedIdentities"></ul>'
     let right = document.createElement("div")
     right.id = "right-column"
-    right.className = "flex-1" 
+    right.className = "flex-1 max-w-full" 
     right.innerHTML = '<h2>Accounts waiting to be added</h2>\
     <ul id="unprovedIdentities"></ul>'
     d.appendChild(left)
@@ -150,6 +150,7 @@ function makeItem(key, value) {
 
 function makeText(text) {
     let s = document.createElement("span")
+    s.className = "text-clip overflow-hidden"
     s.innerText = text
     return s
 }

@@ -36,4 +36,4 @@
 import { useSettings } from "~/flamewerk/project";
 const project = useSettings();
 
-<script/>
+</script>

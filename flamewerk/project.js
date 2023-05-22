@@ -62,16 +62,16 @@ export const useSettings = defineStore("project", {
           mobileposition: 1,
         },
 
-        {
-          name: 'New SubRocket',
-          description: 'Create a product list and start selling products and digital goods today.',
-          href: '/subrocket',
-          icon: '🚀',
-          bgcolor:'bg-blue-500',
-          position: 1,
-          mobile: true,
-          mobileposition: 1,
-        },
+        // {
+        //   name: 'New SubRocket',
+        //   description: 'Create a product list and start selling products and digital goods today.',
+        //   href: '/subrocket',
+        //   icon: '🚀',
+        //   bgcolor:'bg-blue-500',
+        //   position: 1,
+        //   mobile: true,
+        //   mobileposition: 1,
+        // },
 
         {
           name: 'Account',
@@ -109,16 +109,16 @@ export const useSettings = defineStore("project", {
         },
 
 
-        {
-          name: 'New SubRocket',
-          description: 'Create a product list and start selling products and digital goods today.',
-          href: '/subrocket',
-          icon: '🚀',
-          bgcolor:'bg-blue-500',
-          position: 1,
-          mobile: true,
-          mobileposition: 1,
-        },
+        // {
+        //   name: 'New SubRocket',
+        //   description: 'Create a product list and start selling products and digital goods today.',
+        //   href: '/subrocket',
+        //   icon: '🚀',
+        //   bgcolor:'bg-blue-500',
+        //   position: 1,
+        //   mobile: true,
+        //   mobileposition: 1,
+        // },
 
         {
           name: 'Account',

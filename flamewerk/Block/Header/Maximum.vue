@@ -158,7 +158,7 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                       px-4
                       py-6
                       sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8
-                      lg:grid-cols-3 lg:px-8 lg:py-12
+                      lg:grid-cols-2 lg:px-8 lg:py-12
                       xl:py-16
                     "
                   >
@@ -174,10 +174,11 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                         justify-between
                         rounded-lg
                         p-3
-                        bg-colorHeaderBgMenuPopupLinkLight
+                        bg-gray-100
+                        dark:bg-gray-900
                         hover:bg-white
                         dark:hover:bg-colorHeaderBgMenuPopupLinkHoverDark
-                        dark:bg-colorHeaderBgMenuPopupLinkDark
+                        
                       "
                     >
                       <div class="flex md:h-full lg:flex-col">

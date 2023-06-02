@@ -42,11 +42,12 @@
                 as="h3"
                 class="text-lg font-medium leading-6 text-gray-900"
               >
-                🚀 Nostrocket Login
+                Payment successful
               </DialogTitle>
               <div class="mt-2">
                 <p class="text-sm text-gray-500">
-You can look but you can't touch. Please install a NIP-07 nostr signing browser extension (such as GetAlby or Nos2x) if you want to interact with Nostrocket!
+                  Your payment has been successfully submitted. We’ve sent you
+                  an email with all of the details of your order.
                 </p>
               </div>
 

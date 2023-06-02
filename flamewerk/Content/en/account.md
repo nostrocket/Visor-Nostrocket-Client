@@ -1,14 +1,28 @@
 ---
 title: 'VISØR: A Nostrocket Client'
-description: 'meta description of the page'
+layout: client
+description: "meta description of the page"
 ---
 
-::BlockProseContentCenters
+:::BlockClientSidePanel
+::BlockProseContent
 
-# 🪪 Account 
+# Account
 
-:ComponentAccount
+:BlockNostrIdentityLoadedSimple
 
 ::
 
+:::
 
+:::BlockClientMainPanel
+
+::BlockProseContentCenter
+
+:BlockNostrQueryProfileSimple
+
+---
+
+::
+
+:::

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-colorBgLight dark:bg-colorBgDark min-h-screen">
-    <div class="">
+    <div class="min-h-screen py-6">
       <slot />
     </div>
   </div>

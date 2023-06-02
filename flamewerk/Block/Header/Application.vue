@@ -71,13 +71,30 @@
             <nav class="mt-5 px-2 space-y-1 responsive">
 
 
+                      <BlockNostrLoginMobile v-if="project.$state.nostrlogin" />
+
+
+ 
+            <BlockPopupNostrMobile v-if="project.$state.nostrregister" />
+ 
 
         <NuxtLink
           :to="localePath(item.href)"
           v-for="item in navigation.basicmenu"
           :key="item.name"
-          class="text-gray-800 dark:text-white hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-lg font-medium rounded-md"
-          >{{ item.name }}</NuxtLink
+          class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold w-full"
+          >
+          
+          
+                                            <component
+                          :is="item.heroicon"
+                          class="h-6 w-6 shrink-0"
+                          aria-hidden="true"
+                        />
+          
+          
+          
+          {{ item.name }}</NuxtLink
         >
 
 
@@ -138,14 +155,30 @@
               class="mt-5 flex-1 px-2 bg-gray-300 dark:bg-gray-800 space-y-1"
             >
 
+                    <li v-if="project.$state.nostrlogin">
+                      <BlockNostrLoginMobile  />
+                    </li>
 
+          <li v-if="project.$state.nostrregister">
+            <BlockPopupNostrMobile  />
+          </li>
 
         <NuxtLink
           :to="localePath(item.href)"
           v-for="item in navigation.basicmenu"
           :key="item.name"
-          class="text-gray-800 dark:text-white hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-lg font-medium rounded-md"
-          >{{ item.name }}</NuxtLink
+          class="text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold w-full"
+          >
+                                  <component
+                          :is="item.heroicon"
+                          class="h-6 w-6 shrink-0"
+                          aria-hidden="true"
+                        />
+                        
+          
+          
+          
+          {{ item.name }}</NuxtLink
         >
 
 
@@ -160,6 +193,7 @@
 <BlockShopMenu />
             </div>
 
+          <BlockNostrIdentityCall v-if="project.$state.nostr" />
 
 
 
@@ -179,6 +213,7 @@
         <div class="flex items-center justify-around mx-auto max-w-sm ">
           <BlockSwitchLanguage v-if="project.$state.footerlanguage" />
           <BlockSwitchTheme v-if="project.$state.footertheme" />
+
         </div>
  
             </div>

@@ -1,3 +1,5 @@
+import {GlobeEuropeAfricaIcon, RocketLaunchIcon,PlayCircleIcon, IdentificationIcon, BuildingStorefrontIcon, CursorArrowRippleIcon, CommandLineIcon} from '@heroicons/vue/24/outline'
+// IMPORT ALL HEROICONS HERE YOU WOULD LIKE TO USE IN YOUR MENU
 export const useSettings = defineStore("project", {
   state: () => ({
     name: "Visor",
@@ -10,32 +12,35 @@ export const useSettings = defineStore("project", {
     logodarkimage: "LightVisor.png",
 
     language: "en",
-    dafaultroute: "/error",   // Default error route (can be set to / to just push dead links to the homepage)
+    dafaultroute: "/error",      // Default error route (can be set to / to just push dead links to the homepage)
 
-    layout: 'landing',            // (default, web, app )
-    layoutnews: 'docs',       // (default, web, app ) 
-    layoutdocs: 'docs',       // (default, web, app )      
+    layout: 'client',               // (default, web, app, client )      
 
-    shop: false,              // still need to hook up
-    shopcurrency: 'eur',      // Default Currenty ( Should be an object)
+    shop: false,                  // still need to hook up
+    shopcurrency: 'eur',         // Default Currenty ( Should be an object)
     snipcartid: 'YjIxYzVkZTMtZTAwYi00ODAxLWFiZTgtN2RmNGM4Y2NkZDJlNjM3MjQ4MDgxODk2ODI3ODcy', // Snipcart API
 
-    headertype: 'Maximum',    // Options: Tiny, Maximum, Application
-    headermenu: false,
+    headertype: 'Maximum',       // Options: Tiny, Maximum, Application
+    headermenu: true,            // Enable to set a classic menu
     headerlanguage: true,
-    headerlogin: true,
+    headerlogin: false,
     headersocials: true,
     headerlogintext: 'Sign up!',
+    headerclientprofile: false,
 
-    footertype: 'Tiny',       // Options: Tiny, Minimal, Maximum, Ecommerce
+    nostr:true,                   // Login Prompt Request Nip-07 on page load
+    nostrlogin: true,             // Add’s a menu icon to retrigger Nip-07 Login Prompt
+    nostrregister: true,          // Add’s a key menu icon to popup a Generating Keypairs 
+    nostrprofile: true,          // Still need to be implemented Reads out your profile Information.
+    nostrrelay: "wss://relay.damus.io",               // Set your relay to connect to wss://relay.example.io
+
+    footertype: 'Ecommerce',      // Options: Tiny, Minimal, Maximum, Ecommerce
     footerlanguage: true,
     footernewsletter: false,
-    footersocials: true,
-    footertheme:true,         // Toggle Dark/Light mode switch
+    footersocials: true,          // Toggle Dark/Light mode switch
+    footertheme:true,             // Toggle Dark/Light mode switch
     
-    nostr:true,
-
-    socialnavigation : {      // Options: facebook, instragram, twitter, github, discord, linkedin, dribble
+    socialnavigation : {          // Enter a Url/Key to your Social Account
       facebook: '',
       instagram: '',
       twitter: '',
@@ -49,47 +54,47 @@ export const useSettings = defineStore("project", {
 
     // HEADERNAVIGATION
     Headernavigation : { 
-
       basicmenu : [
         {
           name: 'Identity Tree',
           description: 'Design and create Blogs, landingpages and traditional websites.',
           href: '/',
-          icon: '🌳',
+          icon: '',
+          heroicon: RocketLaunchIcon,
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,
           mobileposition: 1,
         },
-
-        // {
-        //   name: 'New SubRocket',
-        //   description: 'Create a product list and start selling products and digital goods today.',
-        //   href: '/subrocket',
-        //   icon: '🚀',
-        //   bgcolor:'bg-blue-500',
-        //   position: 1,
-        //   mobile: true,
-        //   mobileposition: 1,
-        // },
-
+        
         {
-          name: 'Account',
+          name: 'Profile',
           description: 'Start building the core app design with ready made auth designs.',
           href: '/account',
-          icon: '🪪',
+          icon: '',
+          heroicon: IdentificationIcon,
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,
           mobileposition: 1,
         },
-
+        {
+          name: 'Playground',
+          description: 'Start building the core app design with ready made auth designs.',
+          href: '/keys',
+          icon: '',
+          heroicon: PlayCircleIcon,
+          bgcolor:'bg-blue-500',
+          position: 1,
+          mobile: true,
+          mobileposition: 1,
+        },
 
 
       ],
 
-      MenuPopupBig: true,
-      MenuPopupBigName: 'Mission Control',
+      MenuPopupBig: false,
+      MenuPopupBigName: 'Examples',
       MenuPopupSplit: false,
       MenuPopupSplitName: 'Split Menu',
       MenuPopupSplitBlog: true,
@@ -98,38 +103,37 @@ export const useSettings = defineStore("project", {
       // MENU SLIDE OPEN
       MenuPopupBigItems : [
         {
-          name: 'Identity Tree',
+          name: 'Website',
           description: 'Design and create Blogs, landingpages and traditional websites.',
-          href: '/',
-          icon: '🌳',
+          href: '/site',
+          icon: '🖥️',
           bgcolor:'bg-blue-500',
           position: 1,
-          mobile: true,
-          mobileposition: 1,
         },
-
-
-        // {
-        //   name: 'New SubRocket',
-        //   description: 'Create a product list and start selling products and digital goods today.',
-        //   href: '/subrocket',
-        //   icon: '🚀',
-        //   bgcolor:'bg-blue-500',
-        //   position: 1,
-        //   mobile: true,
-        //   mobileposition: 1,
-        // },
-
         {
-          name: 'Account',
+          name: 'Application',
           description: 'Start building the core app design with ready made auth designs.',
-          href: '/account',
-          icon: '🪪',
-          bgcolor:'bg-blue-500',
-          position: 1,
-          mobile: true,
-          mobileposition: 1,
+          href: '/login',
+          icon: '📱',
+          bgcolor:'bg-yellow-500',
+          position: 2,
         },
+        { name: 'E-commerce', 
+        description: 'Create a product list and start selling products and digital goods today.',
+          href: '/shop', 
+          icon: '🛍️',
+          bgcolor:'bg-purple-500', 
+          position: 3,
+        }, 
+        {
+          name: 'Client',
+          description: 'Build multi-panel clients for building applications and workapps.',
+          href: '/client',
+          icon: '🥂',
+          bgcolor:'bg-pink-500',
+          position: 4,
+        },
+
 
       ],
       MenuPopupSplitColums: {
@@ -178,11 +182,7 @@ export const useSettings = defineStore("project", {
         { name: 'Shipping', href: '/shipping' },
 
       ],
-
-
     }
     }
-
-
   }),
 });

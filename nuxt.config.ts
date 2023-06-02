@@ -1,17 +1,17 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  ssr: false,
+  ssr:false,
   components: {
     global: true,
     dirs: ["~/flamewerk"],
   },
   modules: [
-    "@nuxtjs/robots",
     "@kevinmarrec/nuxt-pwa",
     "@nuxt/content",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
+    "nuxt-chatgpt",
     [
       "@pinia/nuxt",
       {
@@ -25,14 +25,28 @@ export default defineNuxtConfig({
     ],
   ],
   vite: {
-    optimizeDeps: {
-      esbuildOptions: {target: "es2020"}
+    optimizeDeps: { // 👈 optimizedeps
+      esbuildOptions: {
+        target: "es2020", 
+        supported: { 
+          bigint: true 
+        },
+      }
+    }, 
+    build: {
+      target: ["es2020"], // 👈 build.target
+    },
   },
+
+  chatgpt: {
+    apiKey: 'sk-'
   },
+
   pwa: {
     meta: {
       title: "Visør: a Nostrocket Client",
       name: "Visør",
+      short_name: "Visør Nostrocket Client",
       description:
         "A Nostrocket Client",
       ogImage: {
@@ -107,6 +121,7 @@ export default defineNuxtConfig({
         base: "./flamewerk/Content/", // Path for source directory
       },
     },
+    documentDriven: true,
   },
 
   tailwindcss: {

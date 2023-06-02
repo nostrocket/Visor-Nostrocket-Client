@@ -1,7 +1,7 @@
 <template>
 
 
-<footer class="backdrop-blur-sm bg-opacity-[50%] border-t border-gray-700" aria-labelledby="footer-heading">
+<footer class="bg-colorHeaderBgLight dark:bg-colorHeaderBgDark border-t border-gray-700" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
   <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
     <div class="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">

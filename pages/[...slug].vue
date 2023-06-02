@@ -30,10 +30,18 @@
 import { useSettings } from "~/flamewerk/project";
 const project = useSettings();
 
-setPageLayout(project.$state.layout);
+
+
 
 const route = useRoute();
 
 // Rendering the index content const slug = "/";
 const slug = ref("/" + route.params.slug);
+
+
+const { data } = await useAsyncData(`${route.params.slug}`, () => queryContent(`${route.params.slug}`).findOne())
+
+setPageLayout(data._rawValue.layout);
+
+
 </script>

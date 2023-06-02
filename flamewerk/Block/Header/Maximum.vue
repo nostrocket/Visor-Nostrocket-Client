@@ -1,5 +1,5 @@
 <template>
-  <Popover class="fixed backdrop-blur-sm bg-opacity-[50%] w-full z-50">
+  <Popover class="fixed bg-colorHeaderBgLight dark:bg-colorHeaderBgDark w-full z-50">
     <div
       class="pointer-events-none absolute inset-0 z-30 shadow"
       aria-hidden="true"
@@ -40,7 +40,7 @@
 
             <span
               v-if="project.$state.textlogo"
-              class="mt-1.5 ml-4 text-xl font-bold dark:text-pink-500 text-visor-500"
+              class="mt-1.5 ml-4 text-xl font-bold dark:text-white"
               >{{ project.$state.textlogo }}</span
             >
           </NuxtLink>
@@ -54,12 +54,27 @@
         <div class="flex my-2 mr-2 md:hidden">
             <BlockShopMenu />
 
+            <BlockNostrLoginStart v-if="project.$state.nostrlogin"/>
 
- <BlockNostrLoginbutton v-if="project.$state.nostr"/>
+            <BlockPopupNostrRegister v-if="project.$state.nostrregister" />
+
 
           <PopoverButton
             class="
-rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+              inline-flex
+              items-center
+              justify-center
+              rounded-md
+              dark:bg-colorBgLight
+              bg-colorBgDark
+              p-2
+              text-gray-400
+              hover:bg-gray-100 hover:text-gray-500
+              focus:outline-none
+              focus:ring-2
+              focus:ring-inset
+              focus:ring-colorHighLight
+              dark:focus:ring-colorHighDark
             "
           >
             <span class="sr-only">Open menu</span>
@@ -71,21 +86,13 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
         >
           <PopoverGroup as="nav" class="flex space-x-10">
             <!-- Basic Menu Integration -->
-            <!-- <NuxtLink
-              :to="localePath('/missioncontrol')"
-              class="
-                text-base
-                font-medium
-                text-gray-500
-                hover:text-colorTxtLight
-                dark:text-colorTxtDark
-              "
-              >🐇 MISSION CONTROL CLONE</NuxtLink
-            > -->
-
-
-
           <div class="space-x-10" v-if="project.$state.headermenu">
+
+
+          
+
+
+
             <NuxtLink
               :to="localePath(item.href)"
               v-for="item in navigation.basicmenu"
@@ -97,7 +104,17 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                 hover:text-colorTxtLight
                 dark:text-colorTxtDark
               "
-              >{{ item.name }}</NuxtLink
+              >
+              
+                                                          <component
+                          :is="item.heroicon"
+                          class="h-6 w-6 shrink-0 inline"
+                          aria-hidden="true"
+                        />
+              
+              
+              
+              {{ item.name }}</NuxtLink
             >
           </div>
             <Popover
@@ -107,9 +124,9 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
               <PopoverButton
                 :class="[
                   open
-                    ? 'dark:text-white text-black'
-                    : 'dark:text-white text-black',
-                  'px-1 group inline-flex items-center rounded-md text-base font-medium dark:hover:text-gray-100 hover:text-black dark:text-colorTxtDark focus:outline-none focus:ring-2 focus:ring-colorHighLight dark:focus:ring-colorHighDark focus:ring-offset-2 dark:focus:ring-offset-colorBgDark',
+                    ? 'text-colorTxtLight dark:text-colorTxtDark'
+                    : 'text-gray-500',
+                  'px-1 group inline-flex items-center rounded-md bg-colorSwitchBgLight dark:bg-colorSwitchBgDark text-base font-medium hover:text-colorTxtLight dark:text-colorTxtDark focus:outline-none focus:ring-2 focus:ring-colorHighLight dark:focus:ring-colorHighDark focus:ring-offset-2 dark:focus:ring-offset-colorBgDark',
                 ]"
               >
                 <span>{{
@@ -117,8 +134,8 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                 }}</span>
                 <ChevronDownIcon
                   :class="[
-                    open ? 'dark:text-white text-black' : 'dark:text-white text-black',
-                    'ml-2 h-5 w-5 ',
+                    open ? 'text-gray-600' : 'text-gray-400',
+                    'ml-2 h-5 w-5 group-hover:text-gray-500',
                   ]"
                   aria-hidden="true"
                 />
@@ -141,9 +158,8 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                     z-10
                     hidden
                     transform
-                    backdrop-blur-sm
-                    bg-colorHeaderBgMenuPopupLight/10
-                    dark:bg-colorHeaderBgMenuPopupDark/10
+                    bg-colorHeaderBgMenuPopupLight
+                    dark:bg-colorHeaderBgMenuPopupDark
                     shadow-xl
                     dark:shadow-colorBgLight/10
                     md:block
@@ -158,7 +174,7 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                       px-4
                       py-6
                       sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8
-                      lg:grid-cols-2 lg:px-8 lg:py-12
+                      lg:grid-cols-4 lg:px-8 lg:py-12
                       xl:py-16
                     "
                   >
@@ -174,11 +190,10 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                         justify-between
                         rounded-lg
                         p-3
-                        bg-gray-100
-                        dark:bg-gray-900
-                        hover:bg-white
+                        bg-colorHeaderBgMenuPopupLinkLight
+                        hover:bg-colorHeaderBgMenuPopupLinkHoverLight
                         dark:hover:bg-colorHeaderBgMenuPopupLinkHoverDark
-                        
+                        dark:bg-colorHeaderBgMenuPopupLinkDark
                       "
                     >
                       <div class="flex md:h-full lg:flex-col">
@@ -228,6 +243,19 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                               {{ item.description }}
                             </p>
                           </div>
+                          <p
+                            class="
+                              mt-2
+                              text-sm
+                              font-medium
+                              text-colorHighLight
+                              dark:text-colorHighDark
+                              lg:mt-4
+                            "
+                          >
+                            Learn more
+                            <span aria-hidden="true"> &rarr;</span>
+                          </p>
                         </div>
                       </div>
                     </NuxtLink>
@@ -362,6 +390,9 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                                 class="h-6 w-6 flex-shrink-0 text-gray-400"
                                 >{{ item.icon }}</span
                               >
+
+
+                              
                               <span class="ml-4">{{ item.name }}</span>
                             </NuxtLink>
                           </li>
@@ -381,6 +412,11 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
           <div class="flex items-center md:ml-12">
               <BlockShopMenu />
 
+            <BlockNostrLoginStart v-if="project.$state.nostrlogin"/>
+
+            <BlockPopupNostrRegister v-if="project.$state.nostrregister" />
+
+
             <BlockSocialsSmall
               class="hidden lg:inline"
               v-if="project.$state.headersocials"
@@ -389,7 +425,33 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
               v-if="project.$state.headerlanguage"
               :toggledown="true"
             />
-            <BlockNostrIdentity v-if="project.$state.nostr"/>
+            <NuxtLink
+              v-if="project.$state.headerlogin"
+              :to="localePath('/register')"
+              class="
+                ml-4
+                inline-flex
+                items-center
+                justify-center
+                rounded-md
+                border border-transparent
+                px-4
+                py-2
+                text-base
+                font-medium
+                text-white
+                shadow-sm
+                bg-colorBtnLight hover:bg-colorBtnHoverLight
+                dark:bg-colorBtnDark dark:hover:bg-colorBtnHoverDark
+                
+              "
+              >{{ project.$state.headerlogintext }}</NuxtLink
+            >
+
+            
+
+
+
           </div>
         </div>
       </div>
@@ -421,7 +483,8 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
           class="
             divide-y-2 divide-gray-50
             rounded-lg
-          backdrop-blur-sm bg-opacity-[50%]
+            bg-colorHeaderBgMenuPopupLight
+            dark:bg-colorHeaderBgMenuPopupDark
             shadow-lg
             ring-1 ring-black ring-opacity-5
           "
@@ -465,7 +528,11 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
                           sm:h-12 sm:w-12
                         "
                       >
-                        <span class="text-3xl">{{ item.icon }}</span>
+                        <span v-if="item.icon != ''" class="text-3xl">{{ item.icon }}</span>
+                        <!-- <BeakerIcon class="h-6 w-6 text-blue-500" /> -->
+                        <component v-if="item.heroicon != ''" :is="item.heroicon" class="h-6 w-6 flex-shrink-0 text-white" aria-hidden="true" />
+
+
                       </div>
                       <div
                         class="
@@ -484,6 +551,32 @@ rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium t
               </nav>
             </div>
           </div>
+          <div class="py-6 px-5">
+            <div class="mt-6">
+              <NuxtLink
+                v-if="project.$state.headerlogin"
+                :to="localePath('/register')"
+                class="
+                  flex
+                  w-full
+                  items-center
+                  justify-center
+                  rounded-md
+                  border border-transparent
+                  px-4
+                  py-2
+                  text-base
+                  font-medium
+                  text-white
+                  shadow-sm
+                  bg-colorBtnLight
+                  dark:bg-colorBtnDark dark:hover:bg-colorBtnHoverDark
+                  hover:bg-colorBtnHoverLight
+                "
+                >{{ project.$state.headerlogintext }}</NuxtLink
+              >
+            </div>
+          </div>
         </div>
       </PopoverPanel>
     </transition>
@@ -498,6 +591,10 @@ import {
   PopoverPanel,
 } from "@headlessui/vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
+
+import {ArrowPathIcon,ChartBarIcon,CursorArrowRaysIcon,DocumentChartBarIcon,Squares2X2Icon,BookmarkSquareIcon,BriefcaseIcon,BuildingOfficeIcon,CheckCircleIcon,ComputerDesktopIcon,GlobeAltIcon,InformationCircleIcon,NewspaperIcon,PhoneIcon,PlayIcon,ShieldCheckIcon,UserGroupIcon,} from '@heroicons/vue/24/outline'
+
+import { BeakerIcon } from '@heroicons/vue/24/solid'
 
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 

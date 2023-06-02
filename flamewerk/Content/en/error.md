@@ -1,6 +1,6 @@
 ---
-title: 'Flamewerk'
-description: 'Error Page: Sorry this page could not be found.'
+title: 'VISØR: A Nostrocket Client'
+layout: client
 ---
 
 :BlockErrorNotFound

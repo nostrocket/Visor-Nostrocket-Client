@@ -16,7 +16,7 @@
         class="mt-12 grid gap-16 pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12"
       >
         <div v-for="post in posts" :key="post.title">
-          <NuxtLink :to="{ path: `/news/${post.slug}` }">
+          <NuxtLink :to="localePath(`/news/${post.slug}` )">
             <div class="flex-shrink-0">
               <img
                 class="h-48 w-full object-cover"

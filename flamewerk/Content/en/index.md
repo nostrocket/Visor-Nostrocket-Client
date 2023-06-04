@@ -7,7 +7,7 @@ description: "meta description of the page"
 :::BlockClientSidePanel
 ::BlockProseContent
 
-# Identity Tree
+
 
 
 
@@ -18,6 +18,8 @@ description: "meta description of the page"
 :::BlockClientMainPanel
 
 ::BlockProseContentCenter
+
+# VISØR Nostrocket Client 🚀
 
 ---
 

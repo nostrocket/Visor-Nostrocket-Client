@@ -1,4 +1,4 @@
-import {GlobeEuropeAfricaIcon, RocketLaunchIcon,PlayCircleIcon, IdentificationIcon, BuildingStorefrontIcon, CursorArrowRippleIcon, CommandLineIcon} from '@heroicons/vue/24/outline'
+import {GlobeEuropeAfricaIcon,UserCircleIcon, HomeModernIcon, BugAntIcon, RocketLaunchIcon,PlayCircleIcon, IdentificationIcon, BuildingStorefrontIcon, CursorArrowRippleIcon, CommandLineIcon} from '@heroicons/vue/24/outline'
 // IMPORT ALL HEROICONS HERE YOU WOULD LIKE TO USE IN YOUR MENU
 export const useSettings = defineStore("project", {
   state: () => ({
@@ -56,11 +56,11 @@ export const useSettings = defineStore("project", {
     Headernavigation : { 
       basicmenu : [
         {
-          name: 'Identity Tree',
+          name: 'Home',
           description: 'Design and create Blogs, landingpages and traditional websites.',
           href: '/',
           icon: '',
-          heroicon: RocketLaunchIcon,
+          heroicon: HomeModernIcon,
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,
@@ -68,11 +68,47 @@ export const useSettings = defineStore("project", {
         },
         
         {
-          name: 'Profile',
+          name: 'Launch New Rocket',
+          description: 'Design and create Blogs, landingpages and traditional websites.',
+          href: '/launch-rocket',
+          icon: '',
+          heroicon: RocketLaunchIcon,
+          bgcolor:'bg-blue-500',
+          position: 1,
+          mobile: true,
+          mobileposition: 1,
+        },
+
+        {
+          name: 'Account Details',
           description: 'Start building the core app design with ready made auth designs.',
           href: '/account',
           icon: '',
+          heroicon: UserCircleIcon,
+          bgcolor:'bg-blue-500',
+          position: 1,
+          mobile: true,
+          mobileposition: 1,
+        },
+
+        {
+          name: 'Identity Tree',
+          description: 'Start building the core app design with ready made auth designs.',
+          href: '/identity-tree',
+          icon: '',
           heroicon: IdentificationIcon,
+          bgcolor:'bg-blue-500',
+          position: 1,
+          mobile: true,
+          mobileposition: 1,
+        },
+
+        {
+          name: 'Problem Tracker',
+          description: 'Start building the core app design with ready made auth designs.',
+          href: '/problem-tracker',
+          icon: '',
+          heroicon: BugAntIcon,
           bgcolor:'bg-blue-500',
           position: 1,
           mobile: true,

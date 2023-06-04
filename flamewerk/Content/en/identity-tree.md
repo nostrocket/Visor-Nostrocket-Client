@@ -7,9 +7,9 @@ description: "meta description of the page"
 :::BlockClientSidePanel
 ::BlockProseContent
 
-# Account
 
-:BlockNostrIdentityLoadedSimple
+
+
 
 ::
 
@@ -19,11 +19,11 @@ description: "meta description of the page"
 
 ::BlockProseContentCenter
 
+# Identity Tree 🌴
 
-# Account Details 🪪
 ---
 
-:BlockNostrQueryProfileSimple
+:BlockNostrMessageFirst
 
 ---
 

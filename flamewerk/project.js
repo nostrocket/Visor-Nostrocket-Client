@@ -18,7 +18,7 @@ export const useSettings = defineStore("project", {
 
     shop: false,                  // still need to hook up
     shopcurrency: 'eur',         // Default Currenty ( Should be an object)
-    snipcartid: 'YjIxYzVkZTMtZTAwYi00ODAxLWFiZTgtN2RmNGM4Y2NkZDJlNjM3MjQ4MDgxODk2ODI3ODcy', // Snipcart API
+    snipcartid: '',               // Snipcart API
 
     headertype: 'Maximum',       // Options: Tiny, Maximum, Application
     headermenu: true,            // Enable to set a classic menu

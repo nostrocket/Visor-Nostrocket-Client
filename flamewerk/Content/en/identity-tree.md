@@ -23,8 +23,7 @@ description: "meta description of the page"
 
 ---
 
-:BlockNostrMessageFirst
-
+:ComponentIdentity
 ---
 
 ::

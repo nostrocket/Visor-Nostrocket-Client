@@ -7,6 +7,7 @@ description: "meta description of the page"
 :::BlockClientSidePanel
 ::BlockProseContent
 
+### Accounts waiting to be added
 
 
 
@@ -23,9 +24,10 @@ description: "meta description of the page"
 
 ---
 
-:BlockNostrMessageFirst
-
+:ComponentIdentity
 ---
+
+
 
 ::
 

@@ -21,7 +21,12 @@ description: "meta description of the page"
 
 # Launch New Nostrocket 🚀
 
+
 ---
+
+:ComponentLaunch
+---
+
 
 :BlockNostrMessageFirst
 

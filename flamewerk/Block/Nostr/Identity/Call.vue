@@ -27,13 +27,16 @@
             leave-from="opacity-100 scale-100"
             leave-to="opacity-0 scale-95"
           >
+
+
+          
             <DialogPanel
               class="w-full max-w-5xl transform overflow-hidden rounded-2xl bg-gray-900/80 backdrop-blur-sm bg-opacity-[50%] text-left align-middle shadow-xl transition-all"
             >
+<div class="text-white absolute w-full text-right pr-6 mt-3 rounded-xl" @click="closeModal">X</div>
 
 
               <div class="text-white text-center h-full">
-
               <div class=" w-full">
                 <div class=" p-12">
 

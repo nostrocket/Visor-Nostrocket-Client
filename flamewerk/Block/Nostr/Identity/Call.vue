@@ -169,21 +169,21 @@ isOpen.value = false;
 };
 
 
-// onMounted(() => {
-//   let pubkey = "";
+onMounted(() => {
+  let pubkey = "";
 
-//   setTimeout(function () {
-//     if (window.nostr) {
-//       window.nostr.getPublicKey().then((x) => {
-//         console.log("Current pubkey is: ", x);
-//         pubkey = x;
-//         isOpen.value = false;
-//       });
-//     } else {
-//       isOpen.value = true;
-//     }
-//   }, 100);
-// });
+  setTimeout(function () {
+    if (window.nostr) {
+      window.nostr.getPublicKey().then((x) => {
+        console.log("Current pubkey is: ", x);
+        nostrkeys.nostr.pkhex = x
+        isOpen.value = false;
+      });
+    } else {
+      isOpen.value = true;
+    }
+  }, 100);
+});
 import {
   TransitionRoot,
   TransitionChild,
